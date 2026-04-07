@@ -31,6 +31,6 @@ Server running on http://localhost:5000
 
 ⚠️ Important Notes
 
-Make sure both frontend and backend are running simultaneously
-The backend runs on port 5000
-The frontend runs on port 5173
+Make sure both frontend and backend are running simultaneously  
+The backend runs on port 5000  
+The frontend runs on port 5173  
