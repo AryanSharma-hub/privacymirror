@@ -28,11 +28,22 @@ app.post("/check-breach", async (req, res) => {
 
     console.log("API RESPONSE:", response.data);
 
-    const breaches = response.data?.breaches || [];
+    const breachesRaw = response.data?.breaches || [];
+
+    // flatten nested array
+    const flatBreaches = breachesRaw.flat();
+
+    // convert to objects
+    const formattedBreaches = flatBreaches.map((name) => ({
+      name,
+    }));
+
+    console.log("Formatted:", formattedBreaches);
 
     res.json({
-      breached: breaches.length > 0,
-      count: breaches.length,
+      breached: flatBreaches.length > 0,
+      count: flatBreaches.length,
+      details: formattedBreaches,
     });
 
   } catch (error) {
